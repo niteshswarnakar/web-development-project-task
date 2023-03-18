@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  backend:
+    container_name: note_app-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - backend:/app/backend
+    command: python manage.py runserver
+
+volumes:
+  backend:
+    name: "django"
